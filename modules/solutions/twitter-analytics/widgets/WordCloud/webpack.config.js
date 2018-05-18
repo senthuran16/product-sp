@@ -26,7 +26,6 @@ module.exports = {
         index: './WordCloud.jsx'
     },
     output: {
-//        path: path.resolve(__dirname, './dist/Emotions/'),
         path: path.resolve(__dirname, '../../jsresources/WordCloud/'),
         filename: 'WordCloud.js'
     },
@@ -54,7 +53,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules)/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react']
@@ -82,7 +81,6 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'public'),
         publicPath: '/../../jsresources/'
-//        publicPath: '/dist/'
     },
     externals: {
         react: 'React'
