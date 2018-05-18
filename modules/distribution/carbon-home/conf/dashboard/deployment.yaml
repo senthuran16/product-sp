@@ -261,6 +261,25 @@ wso2.datasources:
         validationTimeout: 30000
         isAutoCommit: false
 
+  # Twitter Analytics data source
+  - name: Twitter_Analytics
+    description: Sample datasource used for twitter anlytics widgets
+    jndiConfig:
+       name: jdbc/Twitter_Analytics
+       useJndiReference: true
+    definition:
+      type: RDBMS
+      configuration:
+        jdbcUrl: 'jdbc:mysql://localhost:3306/Twitter_Analytics?useSSL=false'
+        username: admin
+        password: admin
+        driverClassName: com.mysql.jdbc.Driver
+        maxPoolSize: 50
+        idleTimeout: 60000
+        connectionTestQuery: SELECT 1
+        validationTimeout: 30000
+        isAutoCommit: false
+
   # Dashboard data source
   - name: WSO2_STATUS_DASHBOARD_DB
     description: The datasource used for dashboard feature
