@@ -25,6 +25,8 @@ import './resources/wordCloud.css';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {MuiThemeProvider, darkBaseTheme, getMuiTheme} from 'material-ui/styles';
 import RaisedButton from 'material-ui/RaisedButton';
+// Queries
+import Queries from '../../constants/Queries';
 
 class WordCloud extends Widget {
     constructor(props) {
@@ -81,7 +83,7 @@ class WordCloud extends Widget {
                 textBtnClicked: false,
             });
 
-            this.providerConfiguration('select mention as cloudWords, count(id) as Count from mentionCloud where timestamp> CURRENT_TIMESTAMP()-3600 group by mention', 'mentionCloud')
+            this.providerConfiguration(Queries.WORD_CLOUD.MENTION, 'mentionCloud')
 
         } else if (value === 'hashtag') {
 
@@ -92,7 +94,7 @@ class WordCloud extends Widget {
                 textBtnClicked: false,
             });
 
-            this.providerConfiguration('select hashtag as cloudWords, count(id) as Count from hashtagCloud where timestamp > CURRENT_TIMESTAMP()-3600 group by hashtag', 'hashtagCloud')
+            this.providerConfiguration(Queries.WORD_CLOUD.HASHTAG, 'hashtagCloud')
 
         } else {
             this.setState({
@@ -102,7 +104,7 @@ class WordCloud extends Widget {
                 textBtnClicked: true,
             });
 
-            this.providerConfiguration('select words as cloudWords, count(id) as Count from textCloud where timestamp > CURRENT_TIMESTAMP()-3600 group by words', 'textCloud')
+            this.providerConfiguration(Queries.WORD_CLOUD.WORDS, 'textCloud')
         }
     }
 

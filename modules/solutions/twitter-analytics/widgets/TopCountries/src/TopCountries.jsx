@@ -21,6 +21,8 @@ import React, {Component} from 'react';
 import VizG from 'react-vizgrammar';
 import Widget from '@wso2-dashboards/widget';
 import WidgetChannelManager from './utils/WidgetChannelManager';
+// Queries
+import Queries from '../../constants/Queries';
 
 class TopCountries extends Widget {
     constructor(props) {
@@ -55,7 +57,7 @@ class TopCountries extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select country, count(TweetID) as Tweets from sentiment where PARSEDATETIME(timestamp, 'yyyy-mm-dd hh:mm:ss','en') > CURRENT_TIMESTAMP()-86400 group by country",
+                query: Queries.TOP_COUNTRIES,
                 tableName: 'sentiment',
                 incrementalColumn: 'country',
                 publishingInterval: 30,

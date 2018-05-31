@@ -26,6 +26,8 @@ import Tweet from 'react-tweet-embed';
 import './resources/tweet.css';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {Scrollbars} from 'react-custom-scrollbars';
+// Queries
+import Queries from '../../constants/Queries';
 
 class LiveTweets extends Widget {
     constructor(props) {
@@ -43,7 +45,7 @@ class LiveTweets extends Widget {
             type: 'RDBMSStreamingDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select id,TweetID from sentiment",
+                query: Queries.LIVE_TWEETS,
                 tableName: 'sentiment',
                 incrementalColumn: 'id',
                 publishingInterval: 5,

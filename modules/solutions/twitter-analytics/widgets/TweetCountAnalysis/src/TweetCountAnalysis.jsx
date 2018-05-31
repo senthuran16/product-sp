@@ -23,6 +23,8 @@ import Widget from '@wso2-dashboards/widget';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {MuiThemeProvider, darkBaseTheme, getMuiTheme} from 'material-ui/styles';
 import RaisedButton from 'material-ui/RaisedButton';
+// Queries
+import Queries from '../../constants/Queries';
 
 class TweetCountAnalysis extends Widget {
     constructor(props) {
@@ -97,7 +99,7 @@ class TweetCountAnalysis extends Widget {
                 dataHourBtnClicked:false , 
                 dataMinuteBtnClicked:true
             });
-            this.providerConfiguration("select AGG_TIMESTAMP as time, AGG_COUNT from TweetAggre_HOURS where (AGG_TIMESTAMP/1000 > CURRENT_TIMESTAMP()-86400)", 'TweetAggre_HOURS')
+            this.providerConfiguration(Queries.TWEET_COUNT_ANALYSIS.HOURS_AGGREGATION, 'TweetAggre_HOURS')
 
         } else {
             this.setState({
@@ -106,7 +108,7 @@ class TweetCountAnalysis extends Widget {
                 dataMinuteBtnClicked:false
             });
 
-            this.providerConfiguration("select AGG_TIMESTAMP as time , AGG_COUNT from TweetAggre_MINUTES where (AGG_TIMESTAMP/1000 > CURRENT_TIMESTAMP()-3600)", 'TweetAggre_MINUTES')
+            this.providerConfiguration(Queries.TWEET_COUNT_ANALYSIS.MINUTES_AGGREGATION, 'TweetAggre_MINUTES')
 
         }
     }

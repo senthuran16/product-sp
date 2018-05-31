@@ -23,6 +23,8 @@ import Widget from '@wso2-dashboards/widget';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {MuiThemeProvider, darkBaseTheme, getMuiTheme} from 'material-ui/styles';
 import RaisedButton from 'material-ui/RaisedButton';
+// Queries
+import Queries from '../../constants/Queries';
 
 class Emotions extends Widget {
     constructor(props) {
@@ -58,7 +60,7 @@ class Emotions extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select type as Sentiment, count(TweetID) as Rate from sentiment where PARSEDATETIME(timestamp, 'yyyy-mm-dd hh:mm:ss','en') > CURRENT_TIMESTAMP()-86400 group by type",
+                query: Queries.EMOTIONS,
                 tableName: 'sentiment',
                 incrementalColumn: 'Sentiment',
                 publishingInterval: 60,

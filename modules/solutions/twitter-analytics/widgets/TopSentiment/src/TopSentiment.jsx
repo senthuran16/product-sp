@@ -23,6 +23,8 @@ import Tweet from 'react-tweet-embed'
 import './resources/tweet.css';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {Scrollbars} from 'react-custom-scrollbars';
+// Queries
+import Queries from '../../constants/Queries';
 
 class TopSentiment extends Widget {
     constructor(props) {
@@ -38,7 +40,7 @@ class TopSentiment extends Widget {
                 type: 'RDBMSBatchDataProvider',
                 config: {
                     datasourceName: 'Twitter_Analytics',
-                    query: "select TweetID, value from sentiment where PARSEDATETIME(timestamp, 'yyyy-mm-dd hh:mm:ss','en') > CURRENT_TIMESTAMP()-3600",
+                    query: Queries.TOP_SENTIMENT,
                     tableName: 'sentiment',
                     incrementalColumn: 'TweetID',
                     publishingInterval: 60,

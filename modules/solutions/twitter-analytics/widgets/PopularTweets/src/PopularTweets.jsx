@@ -23,6 +23,8 @@ import Tweet from 'react-tweet-embed'
 import './resources/tweet.css';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {Scrollbars} from 'react-custom-scrollbars';
+// Queries
+import Queries from '../../constants/Queries';
 
 class PopularTweets extends Widget {
     constructor(props) {
@@ -38,7 +40,7 @@ class PopularTweets extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: 'select distinct(TweetID) from PopularTweet',
+                query: Queries.POPULAR_TWEETS,
                 tableName: 'PopularTweet',
                 incrementalColumn: 'TweetID',
                 publishingInterval: 60,

@@ -19,6 +19,8 @@
 import React, {Component} from 'react';
 import Widget from '@wso2-dashboards/widget';
 import WidgetChannelManager from './utils/WidgetChannelManager';
+// Queries
+import Queries from '../../constants/Queries';
 
 class Hashtag extends Widget {
     constructor(props) {
@@ -34,7 +36,7 @@ class Hashtag extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select trackwords from hashTag",
+                query: Queries.HASHTAG,
                 tableName: 'hashTag',
                 incrementalColumn: 'id',
                 publishingInterval: 20,

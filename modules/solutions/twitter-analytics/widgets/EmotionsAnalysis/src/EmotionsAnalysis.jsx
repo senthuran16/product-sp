@@ -23,6 +23,8 @@ import Widget from '@wso2-dashboards/widget';
 import WidgetChannelManager from './utils/WidgetChannelManager';
 import {MuiThemeProvider, darkBaseTheme, getMuiTheme} from 'material-ui/styles';
 import RaisedButton from 'material-ui/RaisedButton';
+// Queries
+import Queries from '../../constants/Queries';
 
 class EmotionsAnalysis extends Widget {
     constructor(props) {
@@ -61,7 +63,7 @@ class EmotionsAnalysis extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select AGG_TIMESTAMP as time, AGG_SUM_value/AGG_COUNT as Average from TweetAggre_MINUTES where (AGG_TIMESTAMP/1000 > CURRENT_TIMESTAMP()-3600)",
+                query: Queries.EMOTIONS_ANALYSIS,
                 tableName: 'TweetAggre_MINUTES',
                 incrementalColumn: 'AGG_TIMESTAMP',
                 publishingInterval: 5,

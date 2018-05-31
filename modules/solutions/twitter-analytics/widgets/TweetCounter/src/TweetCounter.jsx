@@ -25,6 +25,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import VizG from 'react-vizgrammar';
 import WidgetChannelManager from './utils/WidgetChannelManager';
+// Queries
+import Queries from '../../constants/Queries';
 
 class TweetCounter extends Widget {
     constructor(props) {
@@ -50,7 +52,7 @@ class TweetCounter extends Widget {
             type: 'RDBMSBatchDataProvider',
             config: {
                 datasourceName: 'Twitter_Analytics',
-                query: "select trackwords from hashTag",
+                query: Queries.TWEET_COUNTER,
                 tableName: 'hashTag',
                 incrementalColumn: 'id',
                 publishingInterval: 20
